@@ -11,7 +11,7 @@ def get_opportunities(api_key, posted_from, posted_to, limit=10, offset=0):
         'postedTo': posted_to,
         'limit': limit,
         'offset': offset,
-        'ptype': 'a'  # Example: Award Notice
+        'ptype': 'o'  # solicitation
     }
     
     try:
@@ -23,6 +23,7 @@ def get_opportunities(api_key, posted_from, posted_to, limit=10, offset=0):
         print(f"An error occurred: {e}")
         return None
 
+#formatted print output to console
 def print_opportunities(opportunities):
     for item in opportunities['opportunitiesData']:
         print("Opportunity Title:", item['title'])
@@ -30,16 +31,14 @@ def print_opportunities(opportunities):
         print("Department:", item.get('department', 'N/A'))
         print("Posted Date:", item['postedDate'])
         print("Type of Opportunity:", item['type'])
-        if item.get('award'):
-            print("Award Amount:", item['award'].get('amount', 'N/A'))
-            print("Awardee Name:", item['award']['awardee'].get('name', 'N/A'))
+        print("Response Deadline:", item.get('responseDeadLine', 'N/A'))
         print("Link to Opportunity:", item['uiLink'])
         print("---------------------------------------------------")
 
 def main():
     api_key = SAM_GOV_API_KEY
-    posted_from = "01/01/2022"
-    posted_to = "12/31/2022"
+    posted_from = "01/01/2024"
+    posted_to = "4/01/2024"
     limit = 10
     offset = 0
     
