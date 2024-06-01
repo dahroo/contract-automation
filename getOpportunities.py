@@ -11,7 +11,8 @@ def get_opportunities(api_key, posted_from, posted_to, limit=10, offset=0):
         'postedTo': posted_to,
         'limit': limit,
         'offset': offset,
-        'ptype': 'o'  # solicitation
+        'ptype': 'o',  # solicitation
+        'solnum': 'BAA-0002-19'
     }
     
     try:
