@@ -1,6 +1,6 @@
 import requests
 import json
-from config import SAM_GOV_API_KEY
+SAM_GOV_API_KEY='2er2s8iV1ePixShEdMX6Z3qOQKgFXC1swOymRuRG'
 
 def get_opportunities(api_key, posted_from, posted_to, limit=10, offset=0):
     base_url = "https://api.sam.gov/opportunities/v2/search"
