@@ -44,9 +44,10 @@ def create_solicitation():
                 posted_date = item['postedDate']
                 deadline = item.get('responseDeadLine', 'N/A')
                 item_link = item['uiLink']
-                board_id = '6770440366'  
+                naics = str(item['naicsCode'])
+                board_id = '6763054292'  
                 group_id = 'topics'
-                result = create_monday_item(MONDAY_API_KEY,board_id, group_id, item_name, posted_date, sol_num, item_link, deadline)
+                result = create_monday_item(MONDAY_API_KEY,board_id, group_id, item_name, posted_date, sol_num, item_link, deadline, naics)
                 return jsonify(result), 200
         else:
             return jsonify({"error": "No opportunities found or bad data received."}), 404

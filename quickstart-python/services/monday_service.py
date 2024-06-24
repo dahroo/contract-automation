@@ -23,7 +23,7 @@ def create_monday_board(board_name, board_kind, api_key):
         raise Exception("Failed to create board: " + response.text)
     
 
-def create_monday_item(api_key, board_id, group_id, item_name, posted_date, sol_num, link_value, deadline, position_relative_method=None, relative_to=None):
+def create_monday_item(api_key, board_id, group_id, item_name, posted_date, sol_num, link_value, deadline, naics, position_relative_method=None, relative_to=None):
     url = "https://api.monday.com/v2/"
     headers = {
         'Content-Type': 'application/json',
@@ -31,17 +31,20 @@ def create_monday_item(api_key, board_id, group_id, item_name, posted_date, sol_
     }
     link_column_value = {
         'url': link_value,  # Ensure this is just the URL string
-        'text': 'View Solicitation'  # You can customize the link text
+        'text': 'Source Link'  # You can customize the link text
     }
-
-    
+    stage = {
+        'index': '11'
+    }
 
     # Format the column values as a JSON string
     column_values = json.dumps({
-        'date4': posted_date[:10],     # Assuming the format for the date is correct ('YYYY-MM-DD')
-        'text__1': sol_num,   # Text column
-        'link__1': link_column_value,   # URL in a text format
-        'date__1': deadline[:10]  # Another date, assuming 'YYYY-MM-DD'
+        'status': stage, #stage
+        'date96': posted_date[:10],     #posted date
+        'solicitation____1': sol_num,   #solicitation num
+        'link__1': link_column_value,   # URL 
+        'date': deadline[:10],  #due date
+        'naics': naics
     })
 
     # GraphQL mutation query
