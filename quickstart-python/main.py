@@ -61,18 +61,65 @@ def create_solicitation():
 def display_form():
     return '''
     <html>
-        <body>
-            <h1>Create Solicitation Item on Monday.com</h1>
-            <form action="/" method="post">
-                <label for="solicitation_number">Solicitation Number:</label>
-                <input type="text" id="solicitation_number" name="solicitation_number"><br><br>
-                <label for="postedFrom">Posted From:</label>
-                <input type="date" id="postedFrom" name="postedFrom"><br><br>
-                <label for="postedTo">Posted To:</label>
-                <input type="date" id="postedTo" name="postedTo"><br><br>
-                <input type="submit" value="Create Solicitation">
-            </form>
-        </body>
+    <head>
+        <style>
+            body {
+                background-color: #333;
+                color: #ccc;
+                font-family: 'Arial', sans-serif;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            form {
+                background-color: #222;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+            label {
+                margin-bottom: 10px;
+                display: block;
+            }
+            input[type="text"], input[type="date"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 20px;
+                border-radius: 4px;
+                border: none;
+                background-color: #555;
+                color: #ddd;
+            }
+            input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/" method="post">
+            <h1 style="color: #fff;">Import a Contract into Monday</h1>
+            <label for="solicitation_number">Solicitation Number:</label>
+            <input type="text" id="solicitation_number" name="solicitation_number"><br>
+            <label for="postedFrom">Posted From:</label>
+            <input type="date" id="postedFrom" name="postedFrom"><br>
+            <label for="postedTo">Posted To:</label>
+            <input type="date" id="postedTo" name="postedTo"><br>
+            <input type="submit" value="Create Solicitation">
+        </form>
+    </body>
     </html>
     '''
 
